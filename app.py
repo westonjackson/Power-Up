@@ -5,12 +5,15 @@ import logging
 from logging import Formatter, FileHandler
 import os
 
-
 app = Flask(__name__)
 
 @app.route("/")
 def home():
     return render_template('home.html')
+
+@app.route('/alertbutton')
+def alertbutton():
+    return render_template('alertbutton.html')
 
 @app.route("/heatmap")
 def heatmap():
@@ -24,6 +27,13 @@ def report():
 def livefeed():
     return render_template('livefeed.html')
 
+@app.route('/users')
+def users():
+    return render_template('users.html')
+
+@app.route('/about')
+def about():
+    return render_template('about.html')
 
 if __name__ == '__main__':
     app.run()
