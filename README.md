@@ -6,21 +6,21 @@ We hope to create a webapp to help people like Jenni feel safer in their neighbo
 
 
 
-Functionality:
-The system will provide direct contact to the authorities if they feel in danger by pressing an alert button on the side of the safety glasses.
+## Functionality:
+### The system will provide direct contact to the authorities if they feel in danger by pressing an alert button on the side of the safety glasses.
 (how) - A function will provide direct contact to the authorities if someone feels in danger. Users will press an alert button on the side of the safety glasses and the app will use the gps on the glasses to trace the user's direct location and send it to 911 and the nearest police units.
 
-The system will allow women to also snap a picture of an attacker or dangerous provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area activities that she sees in front of her.
+### The system will allow women to also snap a picture of an attacker or dangerous provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area activities that she sees in front of her.
 (how) - A function will allow women to also snap a picture of an attacker or dangerous activities that she sees in front of her. It will use the camera on the opposite side of the alert button on the glasses to take the picture of the events unfolding in front of the user, then upload it immediately onto the apps feed (possibly writing a caption along with it).
 
-The system will allow only the user who purchased the glasses to use them through a retina scanner.
+### The system will allow only the user who purchased the glasses to use them through a retina scanner.
 (how) - A function will allow only the user who purchased the glasses to use them through a retina scanner. It will scan the user's retina as soon as they place the glasses on themselves to ensure that only the user has access.
 
-The system will show the user a heat map where the most activity happens, as well as the locations of other users and where police are in the area. 
+### The system will show the user a heat map where the most activity happens, as well as the locations of other users and where police are in the area. 
 (how) - A function will show the user a heat map where the most activity happens, as well as the locations of other users and where police are in the area. It will display - a heat map of the crime that has been going on in the area, and a map of pinpoints that indicate local user’s and police units. You have the option to combine the maps or view them separately.
 
-The system will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area.
+### The system will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area.
 (how) - A function will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area. It will 
 
 
-FLASK_APP=hello.py flask run
+# FLASK_APP=hello.py flask run
