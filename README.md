@@ -23,4 +23,4 @@ We hope to create a webapp to help people like Jenni feel safer in their neighbo
 (how) - A function will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area. It will 
 
 
-# FLASK_APP=hello.py flask run
+# FLASK_APP=app.py flask run
