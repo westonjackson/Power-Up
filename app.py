@@ -1,9 +1,12 @@
 from flask import Flask
 from flask import render_template, request
+import sqlite3
 #from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
 import os
+
+DATABASE = 'test.db'
 
 app = Flask(__name__)
 
@@ -34,6 +37,11 @@ def users():
 @app.route('/about')
 def about():
     return render_template('about.html')
+
+
+
+
+
 
 if __name__ == '__main__':
     app.run()
