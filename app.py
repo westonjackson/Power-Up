@@ -7,15 +7,23 @@ from logging import Formatter, FileHandler
 import os
 
 
-DATABASE = 'test.db'
+DATABASE = 'database.db'
 
 app = Flask(__name__)
 app.debug = True
 
-def get_alerts():
-    with sql.connect("test.db") as con:
+def get_pins():
+    with sql.connect(DATABASE) as con:
         cur = con.cursor()
-        cur.execute("SELECT * FROM alerts")
+        cur.execute("SELECT latitude, longitude FROM alerts")
+        data = cur.fetchall()
+    return data
+  
+
+def get_alerts():
+    with sql.connect(DATABASE) as con:
+        cur = con.cursor()
+        cur.execute("SELECT name, time, location, description FROM alerts")
         data = cur.fetchall()
     return data
 
@@ -24,13 +32,10 @@ def get_alerts():
 def home():
     return render_template('home.html')
 
-@app.route('/alertbutton')
-def alertbutton():
-    return render_template('alertbutton.html')
-
 @app.route("/heatmap")
 def heatmap():
-    return render_template('heatmap.html')
+    data = get_pins()
+    return render_template('heatmap.html', data=data)
 
 @app.route("/report")
 def report():
@@ -52,10 +57,13 @@ def alert_handler():
         name = request.form['name']
         location = request.form['location']
         time = request.form['time']
+        description = request.form['description']
 
-        with sql.connect("test.db") as con:
+                
+
+        with sql.connect(DATABASE) as con:
             cur = con.cursor()
-            cur.execute("INSERT INTO alerts (name, time, location) VALUES (?,?,?)", (name, time, location))
+            cur.execute("INSERT INTO alerts (name, time, location, latitude, longitude, description) VALUES (?,?,?,?,?,?)", (name, time, location, latitude, longitude, description))
             con.commit()
 
         return render_template("alertbutton.html")

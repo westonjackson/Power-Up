@@ -19,10 +19,11 @@
 		
 		<div><h4 align="left">Add Location</h4></div>
 		<input type="text" id="loc-input" align="left"></input>
+
 		<input style="display:none" type="text" id="lat-input"></input>
 		<input style="display:none" type="text" id="long-input"></input>
-		<script>
-		function initAutocomplete(){
+    	<script>
+    	function initAutocomplete(){
 			var input = document.getElementById('loc-input');
 			var searchBox = new google.maps.places.Autocomplete(input);
 		}
