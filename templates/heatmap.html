@@ -12,21 +12,53 @@
    }
 </style>
 <div>
-  <h4>The heat map shows where users have checked in. Enable location and when viewing the map, you see four colored pins: unsafe report, other user, police, and safe report.  </h4>
+  <h4>The heat map shows where users have checked in. Enable location and when viewing the map, you see four colored pins: unsafe report (red), friends (yellow), police (blue), and safe report (green).  </h4>
   </div>
 <div id="map"></div>
 <script>
   function initMap() {
-    var bcc = {lat: 40.854822, lng: -73.911192};
+    var cop1 = {lat: 40.851822, lng: -73.911192};
+    var cop2 = {lat: 40.857222, lng: -73.918192};
+    var cop3 = {lat: 40.853922, lng: -73.912192};
+    var friend1 = {lat: 40.852922, lng: -73.916192};
+    var safe1  = {lat: 40.849922, lng: -73.910892};
+   
+    
     var map = new google.maps.Map(document.getElementById('map'), {
       zoom: 15,
-      center: bcc
+      center: cop1
     });
 
-    var marker = new google.maps.Marker({
-      position: bcc,
+    var mark1 = new google.maps.Marker({
+      position: cop1,
       map: map
     });
+    mark1.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+    var mark2 = new google.maps.Marker({
+      position: cop2,
+      map: map
+    });
+    mark2.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+    var mark3 = new google.maps.Marker({
+      position: cop3,
+      map: map
+    });
+    mark3.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+
+     var mark4 = new google.maps.Marker({
+      position: friend1,
+      map: map
+    });
+    mark4.setIcon('http://maps.google.com/mapfiles/ms/icons/yellow-dot.png')
+
+    var mark5 = new google.maps.Marker({
+      position: safe1,
+      map: map
+    });
+    mark5.setIcon('http://maps.google.com/mapfiles/ms/icons/green-dot.png')
+
   }
 </script>
 <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXSnC5gYjlhE5WAsccj7vsdw0Td8DEpHI&callback=initMap">
