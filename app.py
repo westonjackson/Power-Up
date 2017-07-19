@@ -41,10 +41,6 @@ def livefeed():
     data = get_alerts()
     return render_template('livefeed.html', data=data)
 
-@app.route('/users')
-def users():
-    return render_template('users.html')
-
 @app.route('/about')
 def about():
     return render_template('about.html')
