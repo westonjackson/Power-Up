@@ -15,7 +15,7 @@ app.debug = True
 def get_pins():
     with sql.connect(DATABASE) as con:
         cur = con.cursor()
-        cur.execute("SELECT (latitude, longitude) FROM alerts")
+        cur.execute("SELECT latitude, longitude FROM alerts")
         data = cur.fetchall()
     return data
   
@@ -23,7 +23,7 @@ def get_pins():
 def get_alerts():
     with sql.connect(DATABASE) as con:
         cur = con.cursor()
-        cur.execute("SELECT (name, time, location, description) FROM alerts")
+        cur.execute("SELECT name, time, location, description FROM alerts")
         data = cur.fetchall()
     return data
 
@@ -34,7 +34,8 @@ def home():
 
 @app.route("/heatmap")
 def heatmap():
-    return render_template('heatmap.html')
+    data = get_pins()
+    return render_template('heatmap.html', data=data)
 
 @app.route("/report")
 def report():
@@ -58,7 +59,7 @@ def alert_handler():
         time = request.form['time']
         description = request.form['description']
 
-        
+                
 
         with sql.connect(DATABASE) as con:
             cur = con.cursor()
