@@ -32,22 +32,22 @@
 			var searchBox = new google.maps.places.Autocomplete(input);
 		}
 
-		document.getElementById('report-form').onsubmit = function() {
-			//event.preventDefault();
+		$('#report-form').submit(function(event) {
 		    var loc = document.getElementById('loc-input');
 		    var address = loc.value.replace(/\s/g, '+');
 		    var geocoder = new google.maps.Geocoder();
 		    geocoder.geocode( { 'address': address}, function(results, status) {
 		    	if(status === "OK"){
-		    		document.getElementById('long-input').value = results[0].geometry.location.lng();
-		    		document.getElementById('lat-input').value = results[0].geometry.location.lat();
+		    		$('#long-input').val(results[0].geometry.location.lng());
+		    		$('#lat-input').val(results[0].geometry.location.lat());
+		    		return true;
 		    	}
 		    	else{
 		    		alert("Please enter a valid address.");
 		    	}
 		    });
 		    // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAXSnC5gYjlhE5WAsccj7vsdw0Td8DEpHI
-		};
+		});
 		</script>
 		
 		<div align="center">
