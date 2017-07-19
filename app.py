@@ -12,6 +12,14 @@ DATABASE = 'test.db'
 app = Flask(__name__)
 app.debug = True
 
+def get_alerts():
+    with sql.connect("test.db") as con:
+        cur = con.cursor()
+        cur.execute("SELECT * FROM alerts")
+        data = cur.fetchall()
+    return data
+
+ 
 @app.route("/")
 def home():
     return render_template('home.html')
@@ -30,7 +38,8 @@ def report():
 
 @app.route("/livefeed")
 def livefeed():
-    return render_template('livefeed.html')
+    data = get_alerts()
+    return render_template('livefeed.html', data=data)
 
 @app.route('/users')
 def users():
@@ -55,7 +64,7 @@ def alert_handler():
 
         return render_template("alertbutton.html")
         con.close()
-           
+         
 
 if __name__ == '__main__':
     app.run()
