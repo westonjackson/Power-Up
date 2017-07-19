@@ -14,22 +14,26 @@
 		<div><h4 align="left">Name</h4></div>
 		<input type="text" name="name">
 		
+        <div><h4 align="left">Time</h4></div>
+		<input type="text" name="time">
+
 		<div><h4 align="left">Add Photo/Video</h4></div>
 		<input type="file" name="pic" accept="image/*">
 		
 		<div><h4 align="left">Add Location</h4></div>
-		<input type="text" id="loc-input" align="left"></input>
+		<input type="text" id="loc-input" name="location" align="left"></input>
 
-		<input style="display:none" type="text" id="lat-input"></input>
-		<input style="display:none" type="text" id="long-input"></input>
-    	<script>
+		<input style="display:none" type="text" name="latitude" id="lat-input"></input>
+		<input style="display:none" type="text" name="longitude" id="long-input"></input>
+    
+    <script>
     	function initAutocomplete(){
 			var input = document.getElementById('loc-input');
 			var searchBox = new google.maps.places.Autocomplete(input);
 		}
 
 		document.getElementById('report-form').onsubmit = function() {
-			event.preventDefault();
+			//event.preventDefault();
 		    var loc = document.getElementById('loc-input');
 		    var address = loc.value.replace(/\s/g, '+');
 		    var geocoder = new google.maps.Geocoder();
@@ -48,11 +52,11 @@
 		
 		<div align="center">
 			<h3 align="left">Description</h3>
-			<textarea rows="8" cols="80" align="left"></textarea>
+			<textarea rows="8" cols="80" name="description" align="left"></textarea>
 		</div>
 		<div>
 			<label for="report-anonymously" align="center">Report Anonymously</label>
-			<input type="checkbox" id="report-anonymously" align="center" class="form-check-input">
+			<input type="checkbox" id="report-anonymously" name="report" align="center" class="form-check-input">
 		</div>
 		<div align="center" style="font-size:30pt">&#128516; &#128534; &#128528; 
 		<br>
