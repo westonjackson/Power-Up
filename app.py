@@ -63,8 +63,6 @@ def alert_handler():
         description = request.form['description']
         latitude = request.form['latitude']
         longitude = request.form['longitude']
-        print(latitude)
-        print(longitude)
         with sql.connect(DATABASE) as con:
             cur = con.cursor()
             cur.execute("INSERT INTO alerts (name, time, location, latitude, longitude, description) VALUES (?,?,?,?,?,?)", (name, time, location, latitude, longitude, description))
