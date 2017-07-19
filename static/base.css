@@ -2,6 +2,14 @@ body{
 	background-image: url('citystreet.jpg')
 }
 
+p{
+    color:rgba(133, 33, 128, 1);               
+}
+
+ul{
+     color:rgba(133, 33, 128, 1);               
+}
+
 h1{
 	text-align:center;
     font-size:60pt; 
@@ -10,9 +18,13 @@ h1{
 	color:#D63B3B
 }
 
-h2{ color:rgba(133, 33, 128, 1);
+h2 { color:rgba(133, 33, 128, 1);
   text-align:center;      
 }
+
+h3, h4, h5, h6 { color:rgba(133, 33, 128, 1);
+}
+
 
 a.btn-success {
 	background-color:#db2367 !important;
