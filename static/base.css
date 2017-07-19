@@ -29,6 +29,15 @@ a.btn-success {
 	background-color: white;
 }
 
+#map-key{
+	margin:15px;
+	padding:15px;
+}
+
+#map-key img{
+	margin:5px;
+}
+
 #notify-overlay{
 	display:none;
 	position:absolute;
