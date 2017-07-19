@@ -10,6 +10,23 @@ h2{
   text-align:center;      
 }
 
+#notify-overlay{
+	display:none;
+	position:absolute;
+	top:200px;
+	margin-left:50px;
+	width:600px;
+	height:300px;
+	background-color:white;
+	padding:10px;
+	border:1px solid black;
+	border-radius:10px;
+}
+
+#notify-overlay p{
+	font-size:20pt;
+}
+
 .column-left{ float: left; width: 33%; }
 .column-right{ float: right; width: 33%; }
 .column-center{ display: inline-block; width: 33%; }

@@ -1,11 +1,13 @@
 {% extends "base.html" %}
 {% block body %}
-
+<div id="main-content">
 <div class="jumbotron">
     <img src="static/logo.png" class="logo">
     <p style="font-size:12pt"> https://www.linkedin.com/in/emilyeleahtorres/ </p>
     <p> <i>"Where women unite to form a safer community" </i> </p>
 </div>
+
+
 
 <p align="center"><a class="btn btn-lg btn-success" href="showSignIn" role="button">Sign in</a>
 	<a class="btn btn-lg btn-success" href="showSignUp" role="button">Sign up</a></p>
@@ -17,13 +19,13 @@
     <BR>
     <div class="container">
         <div class="column-left">
-                <img src="static/glasses.png" width="200">
+            <img src="static/glasses.png" width="200" id="glasses">
         </div>
         <div class="column-center"> 
-                <img src="static/phone.png" width="100">
+            <img src="static/phone.png" width="100">
         </div>
         <div class="column-right">
-               <img src="static/communicate.jpg" width="200">
+            <img src="static/communicate.jpg" width="200">
         </div>
     </div>
 
@@ -38,6 +40,40 @@
             <h5> Stay Connected! Keep track of local authorities & other users in the area. Also, keep an updated live feed, from both users & City Planning responses. </h5>
         </div>
     </div>
+</div>
+</div>
+<script>
+    $(" #notify-overlay ").hide();
+    var glasses = document.getElementById('glasses');
+    $( '#glasses' ).click(function(e){
+        $(" #notify-overlay ").css('background-color', "white");
+        $(" #notify-overlay ").show();
+        $(" #main-content ").css('opacity', '0.4');
+        setTimeout(function(){
+            $(" #notify-overlay ").css('background', "#44af5d");
+            $("#notify-first-line").text("The police have successfuly been contacted and given your location!");
+            $("#notify-second-line").text("Help is on the way. A photo of this incident has been uploaded to the app.");
+            $("#working").text("A report of this incident along with the location has been sent to city planning.");
+            setTimeout(function(){
+                $(" #notify-overlay ").fadeOut(1000);
+                $(" #main-content ").css('opacity', '1.0');
+            }, 10000);
+        }, 4000);
+    });
+// #notify-overlay{
+//     display:none;
+//     position:absolute;
+//     top:200px;
+//     margin-left:200px;
+//     width:400px;
+//     height:200px;
+// }
+
+</script>
+<div id="notify-overlay">
+    <p id="notify-first-line">We are now contacting the police.</p>
+    <p id="notify-second-line">A photo will be taken from your glasses.</p>
+    <p id="working">Working...</p>
 </div>
 
 {% endblock %}

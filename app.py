@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, request
+from flask import render_template, request, redirect, url_for
 import sqlite3 as sql
 #from flask.ext.sqlalchemy import SQLAlchemy
 import logging
@@ -65,9 +65,10 @@ def alert_handler():
             cur = con.cursor()
             cur.execute("INSERT INTO alerts (name, time, location, latitude, longitude, description) VALUES (?,?,?,?,?,?)", (name, time, location, latitude, longitude, description))
             con.commit()
-
-        return render_template("alertbutton.html")
+        
         con.close()
+        return redirect(url_for('livefeed'))
+        
          
 
 if __name__ == '__main__':
