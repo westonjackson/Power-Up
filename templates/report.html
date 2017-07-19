@@ -1,25 +1,44 @@
 {% extends "base.html" %}
 {% block body %}
+<style>
+#loc-input {
+    width:250px;
+}
+</style>
 	<h1 align="center"><title>Power Up!</title></u></h1>
 	<p>
 	<h1 align="center">Report Form</h1>
 	</p>
 	<p>
-
-	<div><h4 align="left">Add Photo/Video</h4></div>
-	<textarea rows="2" cols="20" align="left"></textarea>
-	<div><h4 align="left">Add Location</h4></div>
-	<textarea rows="2" cols="20" align="left"></textarea>
-	<div><h4 align="left">Tag Users</h4></div>
-	<textarea rows="2" cols="20" align="left"></textarea>
-	<div align="center"><div><h3 align="center">Description</h3></div>
-	<textarea rows="8" cols="80" align="center"></textarea>
-	</div>
-	<div><h4 align="center">Report Anonymously</h4></div>
-	<div align="center"><textarea rows="1" cols="1"></textarea>
-	</div>
-	<p>
-	<div align="center" style="font-size:30pt">&#128516; &#128534; &#128528; 
+	<form id="report-form" action="alert_handler/" method="POST">
+		<div><h4 align="left">Add Photo/Video</h4></div>
+		<input type="file" name="pic" accept="image/*">
+		
+		<div><h4 align="left">Add Location</h4></div>
+		<input type="text" id="loc-input" align="left"></input>
+		<script>
+		function initAutocomplete(){
+			var input = document.getElementById('loc-input');
+			var searchBox = new google.maps.places.Autocomplete(input);
+		}
+		</script>
+		<input style="display:none" type="text" id="latitude"></input>
+		<input style="display:none" type="text" id="longitude"></input>
+		
+		<div align="center">
+			<div><h3 align="center">Description</h3></div>
+			<textarea rows="8" cols="80" align="center"></textarea>
+		</div>
+		<div>
+			<label for="report-anonymously" align="center">Report Anonymously</label>
+			<input type="checkbox" id="report-anonymously" align="center" class="form-check-input">
+		</div>
+		<div align="center" style="font-size:30pt">&#128516; &#128534; &#128528; 
+		<br>
+		<input type="submit"></input>
+		</div>
+	</form>
 	</p>
-	<input type="submit"></input>
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXSnC5gYjlhE5WAsccj7vsdw0Td8DEpHI&libraries=places&callback=initAutocomplete" async defer></script>
+
 {% endblock %}
