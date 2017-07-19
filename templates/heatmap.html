@@ -3,10 +3,32 @@
 <div class="page-header">
   <h1 align="center"><u>Heat map</u></h1>
   </div>
-
+<style>
+  #map {
+    height: 400px;
+    width: 100%;
+   }
+</style>
 <div>
   <h3>The heat map shows where users have checked in. Enable location and when viewing the map, you see four colored pins. These pins are defined by color unsafe report, other user, police, and safe report.  </h3>
   </div>
+<div id="map"></div>
+<script>
+  function initMap() {
+    var bcc = {lat: 40.854822, lng: -73.911192};
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 15,
+      center: bcc
+    });
+
+    var marker = new google.maps.Marker({
+      position: bcc,
+      map: map
+    });
+  }
+</script>
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAXSnC5gYjlhE5WAsccj7vsdw0Td8DEpHI&callback=initMap">
+</script>
 
 <p>
 <img src="http://media.istockphoto.com/photos/four-colored-pins-picture-id502899766" height="250">
