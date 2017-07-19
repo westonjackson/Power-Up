@@ -10,20 +10,40 @@
 	<h1 align="center">Report Form</h1>
 	</p>
 	<p>
-	<form id="report-form" action="alert_handler/" method="POST">
+	<form id="report-form" action="{{ url_for('alert_handler') }}" method="POST">
+		<div><h4 align="left">Name</h4></div>
+		<input type="text" name="name">
+		
 		<div><h4 align="left">Add Photo/Video</h4></div>
 		<input type="file" name="pic" accept="image/*">
 		
 		<div><h4 align="left">Add Location</h4></div>
 		<input type="text" id="loc-input" align="left"></input>
+		<input style="display:none" type="text" id="lat-input"></input>
+		<input style="display:none" type="text" id="long-input"></input>
 		<script>
 		function initAutocomplete(){
 			var input = document.getElementById('loc-input');
 			var searchBox = new google.maps.places.Autocomplete(input);
 		}
+
+		document.getElementById('report-form').onsubmit = function() {
+			event.preventDefault();
+		    var loc = document.getElementById('loc-input');
+		    var address = loc.value.replace(/\s/g, '+');
+		    var geocoder = new google.maps.Geocoder();
+		    geocoder.geocode( { 'address': address}, function(results, status) {
+		    	if(status === "OK"){
+		    		document.getElementById('long-input').value = results[0].geometry.location.lng();
+		    		document.getElementById('lat-input').value = results[0].geometry.location.lat();
+		    	}
+		    	else{
+		    		alert("Please enter a valid address.");
+		    	}
+		    });
+		    // https://maps.googleapis.com/maps/api/geocode/json?address=1600+Amphitheatre+Parkway,+Mountain+View,+CA&key=AIzaSyAXSnC5gYjlhE5WAsccj7vsdw0Td8DEpHI
+		};
 		</script>
-		<input style="display:none" type="text" id="latitude"></input>
-		<input style="display:none" type="text" id="longitude"></input>
 		
 		<div align="center">
 			<div><h3 align="center">Description</h3></div>
