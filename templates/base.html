@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
 </head>
 <body>
-<div class="container">
+<div class="container" id="content">
     <div class="header">
         <nav>
             <ul class="nav nav-pills pull-right" role="tablist">
@@ -21,8 +21,10 @@
             </ul>
         </nav>
         <a href="/"><img class="header-logo" src="{{ url_for('static', filename='logo.png') }}"></a>
+        <br>
    </div>
     {% block body %}{% endblock %}
 </div>
+<a href="/"><img class="header-logo" id="city-planning-logo" src="{{ url_for('static', filename='nycplanninglogo.png') }}"></a>
 </body>
 </html>
