@@ -6,6 +6,5 @@ drop table if exists alerts;
             location text null,
             latitude integer null,
             longitude integer null,
-            description text null,
-            anonymous integer not null
+            description text null
         );

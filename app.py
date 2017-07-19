@@ -53,19 +53,21 @@ def about():
 
 @app.route('/alert_handler', methods = ['POST', 'GET'])
 def alert_handler():
+    print 'HELLO'
     if request.method == 'POST':
         name = request.form['name']
+        if not name:
+                name = 'anonymous'
         location = request.form['location']
         time = request.form['time']
         description = request.form['description']
         latitude = request.form['latitude']
         longitude = request.form['longitude']
-        anonymous = request.form['report']
 
+        print name, time, location, latitude, longitude, description
         with sql.connect(DATABASE) as con:
             cur = con.cursor()
-            print name, time, location, latitude, longitude, description, anonymous
-            cur.execute("INSERT INTO alerts (name, time, location, latitude, longitude, description, anonymous) VALUES (?,?,?,?,?,?,?)", (name, time, location, latitude, longitude, description, anonymous))
+            cur.execute("INSERT INTO alerts (name, time, location, latitude, longitude, description) VALUES (?,?,?,?,?,?)", (name, time, location, latitude, longitude, description))
             con.commit()
         
         con.close()
