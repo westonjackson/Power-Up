@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <title>Power Up!</title>
+    <link href="https://getbootstrap.com/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://getbootstrap.com/examples/jumbotron-narrow/jumbotron-narrow.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+    <div class="header">
+        <nav>
+            <ul class="nav nav-pills pull-right" role="tablist">
+                <li role="presentation" class="active"><a href="/">Home</a></li>
+                <li role="presentation"><a href="/about">About</a></li>
+                <li role="presentation"><a href="/livefeed">Livefeed</a></li>
+                <li role="presentation"><a href="/alertbutton">Alert</a></li>
+                <li role="presentation"><a href="/heatmap">Heat Map</a></li>
+            </ul>
+        </nav>
+    <h3 class="text-muted">WiTNY Power Up!</h3>
+    </div>
+    {% block body %}{% endblock %}
+</div>
+</body>
+</html>
