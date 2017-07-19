@@ -6,7 +6,7 @@ We hope to create a webapp to help people like Jenni feel safer in their neighbo
 
 
 
-## Functionality:
+## Functionality
 ### The system will provide direct contact to the authorities if they feel in danger by pressing an alert button on the side of the safety glasses.
 (how) - A function will provide direct contact to the authorities if someone feels in danger. Users will press an alert button on the side of the safety glasses and the app will use the gps on the glasses to trace the user's direct location and send it to 911 and the nearest police units.
 
@@ -21,6 +21,3 @@ We hope to create a webapp to help people like Jenni feel safer in their neighbo
 
 ### The system will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area.
 (how) - A function will provide reassurance to the woman using it through instant update onto the apps feed when she uses the camera, the alert button, or wants to write something in regards to the area. It will 
-
-
-# FLASK_APP=app.py flask run
