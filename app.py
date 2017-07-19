@@ -53,7 +53,6 @@ def about():
 
 @app.route('/alert_handler', methods = ['POST', 'GET'])
 def alert_handler():
-    print 'HELLO'
     if request.method == 'POST':
         name = request.form['name']
         if not name:
